@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Written by Alex Robinson on 3-3-20
 # Requires vlc to work (sudo apt-get install vlc)
 import sqlite3
@@ -12,6 +13,8 @@ db_path = Path("/home/purism/.purple/chatty/db/chatty-history.db")
 conn = sqlite3.connect(str(db_path))
 cur = conn.cursor()
 
+smscount_path = Path("/home/purism/Projects/text-ding/SMScount.txt")
+
 def get_sms_count():
     buffer = "select * from chatty_im"
     cur.execute(buffer)
@@ -19,7 +22,7 @@ def get_sms_count():
     return str(sms_count)
 
 def compare_sms_counts(new_sms_count):
-    f = open("SMScount.txt", "r")
+    f = open(str(smscount_path), "r")
     old_sms_count = f.read()
     f.close()
     if (new_sms_count != old_sms_count):
@@ -46,7 +49,7 @@ def last_message_recieved(x):
         return False
 
 def update_SMScount(my_sms_count):
-    f = open("SMScount.txt", "w")
+    f = open(str(smscount_path), "w")
     sms_count = my_sms_count
     f.write(sms_count)
     print("SMScount updated")

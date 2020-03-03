@@ -3,12 +3,11 @@ import sqlite3
 import os
 from pathlib import Path
 
-sound_path = Path("/usr/share/sounds/gnome/default/alerts/")
-my_sound = sound_path/"bark.ogg"
 db_path = Path("/home/purism/.purple/chatty/db/chatty-history.db")
+smscount_path = Path("/home/purism/Projects/text-ding/SMScount.txt")
 conn = sqlite3.connect(str(db_path))
 cur = conn.cursor()
-f = open("SMScount.txt", "w")
+f = open(str(smscount_path), "w")
 buffer = "select * from chatty_im"
 cur.execute(buffer);
 sms_count = len(cur.fetchall()) + 1
