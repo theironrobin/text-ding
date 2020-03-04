@@ -9,7 +9,7 @@ steps to set up:
 1. mkdir ~/Projects & cd ~/Projects
 2. clone the project 
 3. chmod +x *.python
-4. execute the init python script once
+4. execute the init python script once ```python3 init.py```
 5. add this to crontab file, command: crontab -e
 ```
 * * * * * cd /home/purism/Projects/text-ding & /home/purism/Projects/text-ding/main.py
