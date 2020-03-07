@@ -5,6 +5,7 @@ import sqlite3
 import os
 from pathlib import Path
 
+# Define global variables
 sound_path = Path("/usr/share/sounds/gnome/default/alerts/")
 my_sound = sound_path/"bark.ogg"
 bark = "cvlc --play-and-exit " + str(my_sound)
@@ -15,6 +16,7 @@ cur = conn.cursor()
 
 smscount_path = Path("/home/purism/Projects/text-ding/SMScount.txt")
 
+# Define functions
 def get_sms_count():
     buffer = "select * from chatty_im"
     cur.execute(buffer)
