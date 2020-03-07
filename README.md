@@ -12,5 +12,5 @@ steps to set up:
 4. execute the init python script once ```python3 init.py```
 5. add this to crontab file, command: crontab -e
 ```
-* * * * * cd /home/purism/Projects/text-ding & /home/purism/Projects/text-ding/main.py
+* * * * * cd /home/purism/Projects/text-ding & /home/purism/Projects/text-ding/main.py # add this for debug: >> ~/cron.log 2>&1
 ```
