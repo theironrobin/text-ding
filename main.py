@@ -37,12 +37,9 @@ def compare_sms_counts(new_sms_count):
 # as opposed to a sent one which we will ignore and not cause an alert.
 def last_message_recieved(x):
     buffer = "select * from chatty_im order by id desc"
-    #buffer = "SELECT * FROM chatty_im ORDER BY ID DESC LIMIT 1"
     cur.execute(buffer)
     # grab the second column which shows status. 1 for recieved -1 for sent.
     status = cur.fetchone()
-   # print(str(status))
-   # print(str(status[2]))
     if str(status[2]) == "1":
         return True
     else: 
