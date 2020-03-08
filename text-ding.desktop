@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=text-ding
+Comment=PureOS text alerts (led + sound at incoming texts!)
+Icon=gnome-info
+Exec=python3 /home/purism/Projects/text-ding/main.py
+Terminal=false
+Type=Application
+Categories=
+
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=0
