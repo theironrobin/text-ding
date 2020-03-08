@@ -1,5 +1,5 @@
 # text-ding
-PureOS SMS Alerts
+PureOS SMS Alerts for PinePhones (led + sound)
 
 This project is still very new, would love to have people test it. 
 
