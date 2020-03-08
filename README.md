@@ -10,3 +10,4 @@ steps to run:
 4. ```cd text-ding/ & chmod +x main.py```
 5. you can run it manually with ```python3 main.py``` or set up autostart below
 6. ```cp text-ding.desktop ~/.config/autostart```
+7. autostart requires reboot
