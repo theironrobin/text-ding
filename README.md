@@ -9,4 +9,4 @@ steps to run:
 3. ```git clone git@github.com:pine-clover/text-ding.git```
 4. ```cd text-ding/ & chmod +x main.py```
 5. you can run it manually with ```python3 main.py``` or set up autostart below
-6. ```cp ~/Projects/text-ding/text-ding.desktop ~/.config/autostart```
+6. ```cp text-ding.desktop ~/.config/autostart```
