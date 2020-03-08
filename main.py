@@ -16,8 +16,7 @@ ignore_read = False
 
 def text_ding(account, sender, message, conversation, flags):
     os.system(led_on)
-    #os.system(bark)
-    #os.system(bark)
+    os.system(bark)
 
 def delay_led_off(account, sender, x, y):
     global ignore_read
