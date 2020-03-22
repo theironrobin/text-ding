@@ -14,6 +14,7 @@ bark = "cvlc --play-and-exit " + str(my_sound)
 green_led_on =  "echo '1' | sudo tee  " + str(green_led_path) + " > /dev/null"
 green_led_off =  "echo '0' | sudo tee  " + str(green_led_path) + " > /dev/null"
 blue_led_on = "echo '1' | sudo tee  " + str(blue_led_path) + " > /dev/null"
+blue_led_off = "echo '0' | sudo tee  " + str(blue_led_path) + " > /dev/null"
 ignore_read = False
 
 def text_ding(account, sender, message, conversation, flags):
@@ -34,6 +35,13 @@ def called(x, y, z):
     if (x=="org.gnome.Mutter.DisplayConfig" and int(y[dbus.String("PowerSaveMode")])==0):
         os.system(blue_led_on)
 
+def launched(a, b, c, d, e):
+    encoding = 'utf-8'
+    launchedapp = str(bytes(a), encoding).split("/")[-1][0:-1]
+    if (launchedapp == "sm.puri.Calls.desktop"):
+        os.system(blue_led_off)
+
+
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 bus = dbus.SessionBus()
 
@@ -52,5 +60,9 @@ bus.add_signal_receiver(read_it,
 bus.add_signal_receiver(called,
                         dbus_interface="org.freedesktop.DBus.Properties",
                         signal_name="PropertiesChanged")
+
+bus.add_signal_receiver(launched,
+                        dbus_interface="org.gtk.gio.DesktopAppInfo",
+                        signal_name="Launched")
 
 GLib.MainLoop().run()
