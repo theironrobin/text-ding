@@ -33,13 +33,13 @@ def read_it(gtkconv):
 
 def called(x, y, z):
     if (x=="org.gnome.Mutter.DisplayConfig" and int(y[dbus.String("PowerSaveMode")])==0):
-        os.system(blue_led_on)
+        #os.system(blue_led_on)
 
 def launched(a, b, c, d, e):
     encoding = 'utf-8'
     launchedapp = str(bytes(a), encoding).split("/")[-1][0:-1]
     if (launchedapp == "sm.puri.Calls.desktop"):
-        os.system(blue_led_off)
+        #os.system(blue_led_off)
 
 
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
